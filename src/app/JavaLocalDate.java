@@ -3,6 +3,7 @@ package app;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
 public class JavaLocalDate {
@@ -25,6 +26,13 @@ public class JavaLocalDate {
 		LocalDate d10 = LocalDate.of(2024, 07, 20);
 		LocalDateTime d11 = LocalDateTime.of(2024, 07, 02, 14, 12);
 		
+		DateTimeFormatter f03 = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+		String d12 = LocalDate.now().format(f03);
+		String d13 = f03.format(LocalDateTime.now());
+		
+		DateTimeFormatter f04 = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm").withZone(ZoneId.of("Z"));
+		String d14 = f04.format(Instant.now());
+		
 		System.out.println(d01);
 		System.out.println(d02);
 		System.out.println(d03);
@@ -36,6 +44,9 @@ public class JavaLocalDate {
 		System.out.println(d09);
 		System.out.println(d10);
 		System.out.println(d11);
+		System.out.println(d12);
+		System.out.println(d13);
+		System.out.println(d14);
 	}
 }
 
